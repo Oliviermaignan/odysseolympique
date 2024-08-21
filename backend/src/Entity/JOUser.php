@@ -6,6 +6,8 @@ use App\Repository\JOUserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 #[ORM\Entity(repositoryClass: JOUserRepository::class)]
 class JOUser
@@ -13,22 +15,28 @@ class JOUser
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['api_users_show'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['api_users_index', 'api_user_show'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['api_users_index', 'api_user_show'])]
     private ?string $first_name = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api_user_show'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api_users_index', 'api_user_show'])]
     private ?string $mail = null;
 
     #[ORM\ManyToOne(inversedBy: 'jOUsers')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_users_index', 'api_user_show'])]
     private ?JORole $role = null;
 
     /**

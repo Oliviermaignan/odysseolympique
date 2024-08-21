@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: JOArticleRepository::class)]
 class JOArticle
@@ -17,18 +18,23 @@ class JOArticle
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['api_articles_index', 'api_article_show'])]
     private ?string $title = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['api_articles_index', 'api_article_show'])]
     private ?string $image = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['api_articles_index', 'api_article_show'])]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['api_articles_index', 'api_article_show'])]
     private ?\DateTimeInterface $date_article = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['api_articles_index', 'api_article_show'])]
     private ?int $like_article = null;
 
     /**

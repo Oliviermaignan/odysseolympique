@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\JOCommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: JOCommentRepository::class)]
 class JOComment
@@ -15,17 +16,21 @@ class JOComment
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Groups(['api_article_show'])]
     private ?\DateTimeInterface $date_comment = null;
 
     #[ORM\Column(length: 500)]
+    #[Groups(['api_article_show'])]
     private ?string $text = null;
 
     #[ORM\ManyToOne(inversedBy: 'jOComments')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_article_show'])]
     private ?JOUser $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'jOComments')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_article_show'])]
     private ?JOArticle $article = null;
 
     public function getId(): ?int
