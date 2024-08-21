@@ -1,26 +1,29 @@
 import Image from "next/image";
 import "./page.module.css"
+import Footer from "./components/Footer";
 
 export default function Home() {
     return (
-        <main>
-            <div className="d-flex">
-                <div className="w-50 m-auto">
-
-                    <Image src={process.env.NEXT_PUBLIC_API_URL + '/logo_jo.png'}
-                        width={100} height={100}
-                    />
+        <>
+            <main className="bg-warning-subtle">
+                    <div className="position-relative" style={{ height: '45vh' }}>
+                        <Image src={process.env.NEXT_PUBLIC_API_URL + '/logo_jo.png'}
+                            fill objectFit="contain" className="pt-5"
+                        />
                 </div>
-            </div>
-            <div className="row">
-                <button className="col-2 mx-4 btn btn-primary custom-btn">aaa</button>
-                <button className="col-2 mx-4 btn btn-dark custom-btn">bbb</button>
-                <button className="col-2 mx-4 btn btn-danger custom-btn">ccc</button>
-            </div>
-            <div className="row">
-                <button className="col-2 mx-4 btn btn-warning">aaa</button>
-                <button className="col-2 mx-4 btn btn-success">bbb</button>
-            </div>
-        </main>
+                <div className="btn-container p-5">
+                    <div className="row d-flex justify-content-center pb-3">
+                        <button className="col-1 mx-3 btn btn-primary custom-btn rounded-pill p-2">Actualités</button>
+                        <button className="col-1 mx-4 btn btn-dark custom-btn rounded-pill p-2">Epreuves</button>
+                        <button className="col-1 mx-4 btn btn-danger custom-btn rounded-pill p-2">Conseils</button>
+                    </div>
+                    <div className="row d-flex justify-content-center">
+                        <button className="col-1 mx-4 btn btn-warning rounded-pill p-2">Medailles</button>
+                        <button className="col-1 mx-4 btn btn-success rounded-pill p-2">Interview</button>
+                    </div>
+                </div>
+            </main>
+            <Footer />
+        </>
     );
 }
