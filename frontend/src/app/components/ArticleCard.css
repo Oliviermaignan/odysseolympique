@@ -1,0 +1,9 @@
+.truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    max-height: 3.6em; /* Ajuster en fonction de la hauteur souhaitée */
+    line-height: 1.2em; /* Ajuster en fonction de la hauteur de ligne */
+  }
