@@ -21,7 +21,7 @@ class UserController extends AbstractController
         return $this->json(data: $users, context: ['groups'=> 'api_users_index']);
     }
 
-    #[Route('/{name}', name: 'show')]
+    #[Route('/{id}', name: 'show')]
     public function show(JOUser $joUser): Response
     {
         return $this->json(data: $joUser, context: ['groups' => ['api_user_show']]);

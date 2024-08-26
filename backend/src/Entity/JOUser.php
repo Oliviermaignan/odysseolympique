@@ -15,7 +15,7 @@ class JOUser
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_users_show'])]
+    #[Groups(['api_user_show'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
