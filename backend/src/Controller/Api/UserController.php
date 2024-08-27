@@ -7,6 +7,7 @@ use App\Repository\JOUserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -27,24 +28,40 @@ class UserController extends AbstractController
         return $this->json(data: $joUser, context: ['groups' => ['api_user_show']]);
     }
 
-    // #[Route('/{name}/edit', name: 'edit')]
-    // public function edit(Request $request, JOUser $joUser, EntityManagerInterface $entityManager): Response
+    // #[Route('/{id}/edit', name: 'edit', methods: ['PUT', 'PATCH', 'GET'])]
+    // public function edit(Request $request, JOUser $joUser, EntityManagerInterface $em): JsonResponse
     // {
-    //     $form = $this->createForm(CategorieType::class, $categorie);
-    //     $form->handleRequest($request);
+    //     $data = json_decode($request->getContent(), true);
 
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $entityManager->flush();
-
-    //         $this->addFlash('success', "La catégorie a été mise à jour.");
-
-    //         return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
+    //     if (!$data) {
+    //         return $this->json(['message' => 'Invalid JSON data'], Response::HTTP_BAD_REQUEST);
     //     }
 
-    //     return $this->render('categorie/edit.html.twig', [
-    //         'categorie' => $categorie,
-    //         'form' => $form,
-    //     ]);
+    //     // Mise à jour des champs
+    //     if (isset($data['username'])) {
+    //         $joUser->setUsername($data['username']);
+    //     }
+        
+    //     if (isset($data['email'])) {
+    //         $joUser->setEmail($data['email']);
+    //     }
+
+    //     // ... Mettre à jour d'autres champs nécessaires
+
+    //     // Persister les modifications
+    //     $em->persist($joUser);
+    //     $em->flush();
+
+    //     return $this->json(data: $joUser, context: ['groups' => 'api_user_edit']);
+    // }
+
+    // #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
+    // public function delete(JOUser $joUser, EntityManagerInterface $em): JsonResponse
+    // {
+    //     $em->remove($joUser);
+    //     $em->flush();
+
+    //     return $this->json(['message' => 'User deleted successfully'], Response::HTTP_NO_CONTENT);
     // }
 
 }
