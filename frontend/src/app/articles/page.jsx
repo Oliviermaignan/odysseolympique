@@ -3,6 +3,7 @@ import { fetchArticles } from '../utils/api'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import ArticleCard from '../components/ArticleCard'
+import Header from '../components/Header'
 
 export default function Articles() {
     const [articles, setArticles] = useState([])
@@ -21,6 +22,7 @@ export default function Articles() {
 
     return (
         <div>
+            <Header/>
             <h1>Articles</h1>
             <div className='d-flex flex-wrap'>
                 {articles.map((article) => (
