@@ -45,6 +45,7 @@ class JOArticle
 
     #[ORM\ManyToOne(inversedBy: 'jOArticles')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['api_articles_index', 'api_article_show'])]
     private ?JOUser $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'jOArticles')]

@@ -19,7 +19,7 @@ class JOUser
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['api_users_index', 'api_user_show'])]
+    #[Groups(['api_users_index', 'api_user_show', 'api_articles_index', 'api_article_show'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 50)]

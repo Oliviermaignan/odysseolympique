@@ -17,7 +17,7 @@ class JORole
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups('api_user_show')]
+    #[Groups(['api_users_index', 'api_user_show'])]
     private ?string $type = null;
 
     /**
