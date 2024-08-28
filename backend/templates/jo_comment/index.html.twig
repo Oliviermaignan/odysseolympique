@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JOComment index{% endblock %}
+
+{% block body %}
+    <h1>JOComment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_comment</th>
+                <th>Text</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for j_o_comment in j_o_comments %}
+            <tr>
+                <td>{{ j_o_comment.id }}</td>
+                <td>{{ j_o_comment.dateComment ? j_o_comment.dateComment|date('Y-m-d') : '' }}</td>
+                <td>{{ j_o_comment.text }}</td>
+                <td>
+                    <a href="{{ path('app_j_o_comment_show', {'id': j_o_comment.id}) }}">show</a>
+                    <a href="{{ path('app_j_o_comment_edit', {'id': j_o_comment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_j_o_comment_new') }}">Create new</a>
+{% endblock %}

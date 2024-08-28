@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit JOComment{% endblock %}
+
+{% block body %}
+    <h1>Edit JOComment</h1>
+
+    {{ include('jo_comment/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_j_o_comment_index') }}">back to list</a>
+
+    {{ include('jo_comment/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JOComment{% endblock %}
+
+{% block body %}
+    <h1>JOComment</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ j_o_comment.id }}</td>
+            </tr>
+            <tr>
+                <th>Date_comment</th>
+                <td>{{ j_o_comment.dateComment ? j_o_comment.dateComment|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ j_o_comment.text }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_j_o_comment_index') }}">back to list</a>
+
+    <a href="{{ path('app_j_o_comment_edit', {'id': j_o_comment.id}) }}">edit</a>
+
+    {{ include('jo_comment/_delete_form.html.twig') }}
+{% endblock %}

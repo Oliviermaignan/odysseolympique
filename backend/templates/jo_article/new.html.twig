@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New JOArticle{% endblock %}
+
+{% block body %}
+    <h1>Create new JOArticle</h1>
+
+    {{ include('jo_article/_form.html.twig') }}
+
+    <a href="{{ path('app_j_o_article_index') }}">back to list</a>
+{% endblock %}

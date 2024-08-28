@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JOArticle index{% endblock %}
+
+{% block body %}
+    <h1>JOArticle index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Date_article</th>
+                <th>Like_article</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for j_o_article in j_o_articles %}
+            <tr>
+                <td>{{ j_o_article.id }}</td>
+                <td>{{ j_o_article.title }}</td>
+                <td>{{ j_o_article.image }}</td>
+                <td>{{ j_o_article.description }}</td>
+                <td>{{ j_o_article.dateArticle ? j_o_article.dateArticle|date('Y-m-d') : '' }}</td>
+                <td>{{ j_o_article.likeArticle }}</td>
+                <td>
+                    <a href="{{ path('app_j_o_article_show', {'id': j_o_article.id}) }}">show</a>
+                    <a href="{{ path('app_j_o_article_edit', {'id': j_o_article.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_j_o_article_new') }}">Create new</a>
+{% endblock %}

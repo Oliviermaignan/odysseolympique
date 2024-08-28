@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit JOArticle{% endblock %}
+
+{% block body %}
+    <h1>Edit JOArticle</h1>
+
+    {{ include('jo_article/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_j_o_article_index') }}">back to list</a>
+
+    {{ include('jo_article/_delete_form.html.twig') }}
+{% endblock %}
