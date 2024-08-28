@@ -45,12 +45,10 @@ class JOArticle
 
     #[ORM\ManyToOne(inversedBy: 'jOArticles')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['api_articles_index', 'api_article_show'])]
-    private ?JOUser $user = null;
+    private ?JOCategory $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'jOArticles')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?JOCategory $category = null;
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -152,18 +150,6 @@ class JOArticle
         return $this;
     }
 
-    public function getUser(): ?JOUser
-    {
-        return $this->user;
-    }
-
-    public function setUser(?JOUser $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getCategory(): ?JOCategory
     {
         return $this->category;
@@ -172,6 +158,18 @@ class JOArticle
     public function setCategory(?JOCategory $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

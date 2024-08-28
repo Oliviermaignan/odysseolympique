@@ -2,12 +2,9 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\JOUser;
-use App\Repository\JOUserRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\User;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -15,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class UserController extends AbstractController
 {
     #[Route('s', name: 'index')]
-    public function index(JOUserRepository $joUserRepository): Response
+    public function index(UserRepository $joUserRepository): Response
     {
         $users = $joUserRepository->findAll();
         
@@ -23,7 +20,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'show')]
-    public function show(JOUser $joUser): Response
+    public function show(User $joUser): Response
     {
         return $this->json(data: $joUser, context: ['groups' => ['api_user_show']]);
     }

@@ -26,12 +26,11 @@ class JOComment
     #[ORM\ManyToOne(inversedBy: 'jOComments')]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(['api_article_show'])]
-    private ?JOUser $user = null;
+    private ?JOArticle $article = null;
 
     #[ORM\ManyToOne(inversedBy: 'jOComments')]
     #[ORM\JoinColumn(nullable: false)]
-    #[Groups(['api_article_show'])]
-    private ?JOArticle $article = null;
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -62,18 +61,6 @@ class JOComment
         return $this;
     }
 
-    public function getUser(): ?JOUser
-    {
-        return $this->user;
-    }
-
-    public function setUser(?JOUser $user): static
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
     public function getArticle(): ?JOArticle
     {
         return $this->article;
@@ -82,6 +69,18 @@ class JOComment
     public function setArticle(?JOArticle $article): static
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
