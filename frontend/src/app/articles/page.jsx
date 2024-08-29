@@ -4,9 +4,11 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import ArticleCard from '../components/ArticleCard'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Articles() {
     const [articles, setArticles] = useState([])
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         const getArticles = async () => {
@@ -14,17 +16,22 @@ export default function Articles() {
                 const data = await fetchArticles()
                 setArticles(data)
             } catch (error) {
-                throw new Error((message = error))
+                setError(true)
+                throw new Error((error))
             }
         }
         getArticles()
     }, [])
 
+    if (error){
+        return <p> error </p>
+    }
+
     return (
         <div>
-            <Header/>
-            <h1>Articles</h1>
-            <div className='d-flex flex-wrap'>
+            <Header />
+            <h2 className="text-center my-4">Articles</h2>
+            <div className="d-flex flex-wrap justify-content-center">
                 {articles.map((article) => (
                     <ArticleCard
                         urlImage={article.image}
@@ -35,9 +42,12 @@ export default function Articles() {
                         articleDate={article.date_article}
                         articleContent={article.description}
                         articleLikes={article.like_article}
+                        articleId={article.id}
+                        articleCategory={article.category}
                     />
                 ))}
             </div>
+            <Footer/>
         </div>
     )
 }
