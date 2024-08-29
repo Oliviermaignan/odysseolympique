@@ -24,11 +24,11 @@ class JOArticleType extends AbstractType
             ->add('like_article')
             ->add('category', EntityType::class, [
                 'class' => JOCategory::class,
-                'choice_label' => 'id',
+                'choice_label' => 'type',
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
         ;
     }
