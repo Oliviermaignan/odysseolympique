@@ -12,13 +12,13 @@
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
 
-		{% if app.user %}
+		{# {% if app.user %}
 			<div class="mb-3">
 				Vous êtes connecté en tant que 
 				{{ app.user.userIdentifier }},
 				<a href="{{ path('app_logout') }}">Se déconnecter</a>
 			</div>
-		{% endif %}
+		{% endif %} #}
 
 		<h2 class="text-center pt-2 pb-2 pt-md-3 pb-md-3">Connexion:</h2>
 		{# <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1> #}
