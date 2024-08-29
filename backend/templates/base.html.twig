@@ -24,9 +24,9 @@
 			<a class="navbar-brand" style="color:#D38E33" href="http://localhost:3000/">L'odyssé Olympique</a>
 			{% if is_granted('ROLE_ADMIN') %}
 				<div class="navbar-nav gap-3">
-					<a class="btn btn-outline-dark" aria-current="page" href="https://127.0.0.1:8000/users">Staff</a>
-					<a class="btn btn-outline-danger" aria-current="page" href="https://127.0.0.1:8000/articles">Articles</a>
-					<a class="btn btn-outline-warning" aria-current="page" href="https://127.0.0.1:8000/users">Mon compte</a>
+					<a class="btn btn-outline-dark" aria-current="page" href="/users">Staff</a>
+					<a class="btn btn-outline-danger" aria-current="page" href="/articles">Articles</a>
+					<a class="btn btn-outline-warning" aria-current="page" href="/users">Mon compte</a>
 					<a class="btn btn-outline-success" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
 				</div>
 			{% endif %}
