@@ -3,9 +3,11 @@ import './Header.css'
 import HeaderBtn from './HeaderBtn'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Header({ categorie }) {
-    const pathname = usePathname()
+    const path = usePathname()
+    const category = path.split('/')[2]
 
     const [isMobile, setIsMobile] = useState(false)
 
@@ -25,48 +27,53 @@ export default function Header({ categorie }) {
         <>
             {isMobile ? (
                 <header style={{ boxShadow: '0 0 2px 5px #D3D3D3' }}>
-                    <p
+                    <Link
                         className="text-gold text-center fw-semibold py-3 fs-4"
-                        href="#"
+                        href="/"
                     >
                         L'odyssé Olympique
-                    </p>
+                    </Link>
                 </header>
             ) : (
                 <header style={{ boxShadow: '0 0 2px 5px #D3D3D3' }}>
                     <nav className="navbar navbar-expand-lg">
                         <div className="container-fluid">
-                            <a
+                            <Link
                                 className="navbar-brand text-danger fw-semibold"
-                                href="#"
+                                href="/"
                             >
                                 L'odyssé Olympique
-                            </a>
+                            </Link>
                             <div className="navbar-nav d-flex w-75 justify-content-evenly">
                                 <HeaderBtn
                                     text={'Actualités'}
                                     color={'btn-primary'}
-                                    active={categorie == 'actualités'}
+                                    active={category == 'actualites'}
+                                    linkName={'actualites'}
                                 />
                                 <HeaderBtn
                                     text={'Epreuves'}
                                     color={'btn-dark'}
-                                    active={categorie == 'épreuves'}
+                                    active={category == 'epreuves'}
+                                    linkName={'epreuves'}
                                 />
                                 <HeaderBtn
                                     text={'Conseils'}
                                     color={'btn-danger'}
-                                    active={categorie == 'conseils'}
+                                    active={category == 'conseils'}
+                                    linkName={'conseils'}
                                 />
                                 <HeaderBtn
                                     text={'Médailles'}
                                     color={'btn-warning'}
-                                    active={categorie == 'médailles'}
+                                    active={category == 'medailles'}
+                                    linkName={'medailles'}
                                 />
                                 <HeaderBtn
-                                    text={'Interview'}
+                                    text={'Interviews'}
                                     color={'btn-success'}
-                                    active={categorie == 'interview'}
+                                    active={category == 'interview'}
+                                    linkName={'interview'}
                                 />
                                 <div
                                     className="vl"
@@ -82,6 +89,7 @@ export default function Header({ categorie }) {
                                 <HeaderBtn
                                     text={'Connexion'}
                                     color={'btn-info'}
+                                    linkName={'connexion'}
                                 />
                             </div>
                         </div>

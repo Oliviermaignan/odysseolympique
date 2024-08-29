@@ -30,7 +30,7 @@ export default function ArticleCard({
             >
                 {articleTitle}
             </p>
-            <div className="position-relative d-flex m-auto w-75" style={{ height: '14vh'}}>
+            <div className="position-relative d-flex m-auto w-75" style={{ height: '16vh'}}>
                 <Link href={'/articles/'+ '/' + articleCategory + '/' + articleId}>
                 <Image
                     src={process.env.NEXT_PUBLIC_API_URL + urlImage}

@@ -15,3 +15,22 @@
 .text-gold{
     color: #D38E33;
 }
+
+.article-detail-img{
+    border-radius: 15px;
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .article-detail-img{
+       width: fit-content;
+    }
+} 
+
+@media only screen and (max-width: 600px) {
+    .article-detail-img{
+       width: 300px;
+       height: 200px;
+    }
+} 

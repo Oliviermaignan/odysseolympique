@@ -3,7 +3,6 @@ import { fetchOneArticle } from '../../../utils/api'
 import { useState, useEffect } from 'react'
 import Header from '@/app/components/Header'
 import Footer from '@/app/components/Footer'
-import Image from 'next/image'
 
 export default function Article(props) {
     const [article, setArticle] = useState()
@@ -42,7 +41,6 @@ export default function Article(props) {
 
                         <div
                             className="position-relative d-flex justify-content-center"
-                            style={{ minHeight: '50vh'}}
                         >
                             <img
                                 src={
@@ -50,7 +48,7 @@ export default function Article(props) {
                                     article.image
                                 }
                                 alt={`image of ${article.title}`}
-                                style={{ borderRadius: '15px', width:'100%'}}
+                                className='article-detail-img'
                             />
                         </div>
                         <p className="px-1 px-md-2 pt-3" style={{textAlign:'justify'}}>
