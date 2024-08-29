@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_ADMIN')]
 #[ORM\Entity(repositoryClass: JOCategoryRepository::class)]
 class JOCategory
 {

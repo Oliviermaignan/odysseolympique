@@ -7,6 +7,7 @@ use App\Repository\JOArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/api/article', name: 'api_article')]
 class ArticleController extends AbstractController
