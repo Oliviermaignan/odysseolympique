@@ -27,8 +27,8 @@
                 <td>{{ j_o_article.dateArticle ? j_o_article.dateArticle|date('Y-m-d') : '' }}</td>
                 <td>{{ j_o_article.likeArticle }}</td>
                 <td>
-                    <a href="{{ path('app_j_o_article_show', {'id': j_o_article.id}) }}">show</a>
-                    <a href="{{ path('app_j_o_article_edit', {'id': j_o_article.id}) }}">edit</a>
+                    <a href="{{ path('app_j_o_article_show', {'id': j_o_article.id}) }}" class="btn btn-warning" style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem;">Voir</a>
+                    <a href="{{ path('app_j_o_article_edit', {'id': j_o_article.id}) }}" class="btn btn-secondary" style="--bs-btn-padding-y: .15rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem;">Editer</a>
                 </td>
             </tr>
         {% else %}
@@ -42,3 +42,4 @@
     <a href="{{ path('app_j_o_article_new') }}" class="btn btn-primary">Créer un article</a>
 
 {% endblock %}
+					

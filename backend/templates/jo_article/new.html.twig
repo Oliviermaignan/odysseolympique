@@ -3,9 +3,9 @@
 {% block title %}New JOArticle{% endblock %}
 
 {% block body %}
-    <h1>Create new JOArticle</h1>
+    <h1>Création d’article</h1>
 
     {{ include('jo_article/_form.html.twig') }}
 
-    <a href="{{ path('app_j_o_article_index') }}">back to list</a>
+    <a href="{{ path('app_j_o_article_index') }}" class="btn btn-primary m-2" >Retourner à la liste</a>
 {% endblock %}

@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\JOCommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+#[IsGranted('ROLE_ADMIN')]
 #[ORM\Entity(repositoryClass: JOCommentRepository::class)]
 class JOComment
 {
