@@ -30,8 +30,9 @@ export default function Header({ categorie }) {
                     <Link
                         className="text-gold text-center fw-semibold py-3 fs-4"
                         href="/"
+                        style={{textDecoration:'unset'}}
                     >
-                        L'odyssé Olympique
+                        <p >L'odyssé Olympique</p>
                     </Link>
                 </header>
             ) : (
