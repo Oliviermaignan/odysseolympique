@@ -1,19 +1,25 @@
 'use client'
-import { fetchArticles } from '../utils/api'
+import { fetchArticlesByCategory } from '../../utils/api'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import ArticleCard from '../components/ArticleCard'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import ArticleCard from '../../components/ArticleCard'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import { usePathname } from 'next/navigation'
 
-export default function Articles() {
+export default function ArticlesByCategory() {
     const [articles, setArticles] = useState([])
     const [error, setError] = useState(false)
+    const path = usePathname()
+    const category = path.split("/")[2]
 
+    
     useEffect(() => {
+        console.log(category);
+        
         const getArticles = async () => {
             try {
-                const data = await fetchArticles()
+                const data = await fetchArticlesByCategory(category)
                 setArticles(data)
             } catch (error) {
                 setError(true)
